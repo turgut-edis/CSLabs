@@ -1,0 +1,49 @@
+import cs1.SimpleURLReader;
+
+/**
+ * This class tests all readers one by one.
+ * @author Turgut Alp Edis
+ * date : 20/10/2020
+ */
+public class Test
+{
+    public static void main( String[] args )
+    {
+        //Constants
+        final String MYURL = "https://scrapethissite.com/pages/simple/";
+
+        //Variables
+        SimpleURLReader simpleURLReader;
+        MySimpleURLReader mysimpreader;
+        HTMLFilteredReader htmlfilteredreader;
+        WordSearch wordSearch;
+
+        //Program Code
+
+        //Part a. Testing SimpleURLReader
+        System.out.println("Testing: Part A");
+        simpleURLReader = new SimpleURLReader( "http://www.cs.bilkent.edu.tr/~ozturk/cs102/housman.txt");
+        System.out.println(simpleURLReader.getPageContents());
+        System.out.println("The line count : " + simpleURLReader.getLineCount());
+
+        //Part b. Testing MySimpleURLReader
+        System.out.println("Testing: Part B");
+        mysimpreader = new MySimpleURLReader(MYURL);
+        System.out.println(mysimpreader.getUrl());
+
+        //Part c. Testing MySimpleURLReader methods
+        System.out.println("Testing: Part C");
+        System.out.println("The number of css links: " + mysimpreader.getNumberOfCSSLinks());
+
+        //Part d. Testing HTMLFilteredReader
+        System.out.println("Testing: Part D");
+        htmlfilteredreader = new HTMLFilteredReader(MYURL);
+        System.out.println(htmlfilteredreader.getPageContents());
+
+        //Part e. Testing WordSearch Program
+        System.out.println("Testing: Part E");
+        wordSearch = new WordSearch(MYURL);
+        wordSearch.searchWord("Turkey");
+        wordSearch.searchWord("Ankara");
+    }
+}
